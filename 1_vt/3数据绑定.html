@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>数据绑定</title>
+        <!-- 引入VUE-->
+        <script type="text/javascript" src="./js/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            单向数据绑定:<input type="text" :value="name">
+        <hr/>
+            双向数据绑定:<input type="text" v-model:value="name"><!-- v-model只能用在表单类元素(输入类元素)上
+            v-model:value可以简写为v-model,默认收集value值-->
+        <br/>
+            双向数据绑定2:<input type="text" v-model="name">
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip = false
+            const x = new Vue({
+                el:'#root', //el用于指定当前vue实例为哪个容器服务,但通常为css选择器字符串,id用#,class用.
+                //el:document.getElementById('root')
+                data() {//data存储数据供el所指定的容器使用
+                    return {
+                       name:'world111' 
+                    }
+                },
+            })//创建vue实例,传参为一个配置对象
+
+        </script>
+    </body>
+</html>

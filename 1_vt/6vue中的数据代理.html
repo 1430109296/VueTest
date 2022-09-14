@@ -1,0 +1,36 @@
+<!-- 数据代理:通过一个对象代理对另一个对象中属性的操作-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>vue中的数据代理</title>
+        <!-- 引入VUE-->
+        <script type="text/javascript" src="./js/vue.js"></script>
+    </head>
+    <body>
+        <!--
+            1.通过vm对象来代理data对象中的操作(getter/setter)
+            2.更加方便的操作data中的数据
+            3.通过Object.defineProperty()把data对象中的所有属性添加到vm上
+              为每一个添加到vm的属性都指定一个getter和setter
+        -->
+        <div id="root">
+            <h1>名称: {{name}}</h1>
+            <h1>性别: {{sex}}</h1>
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip = false
+            const vm = new Vue({
+                el:'#root', //el用于指定当前vue实例为哪个容器服务,但通常为css选择器字符串,id用#,class用.
+                //el:document.getElementById('root')
+                data() {//data存储数据供el所指定的容器使用
+                    return {
+                       name:'张三',
+                       sex:'男'
+                    }
+                },
+            })//创建vue实例,传参为一个配置对象
+
+        </script>
+    </body>
+</html>

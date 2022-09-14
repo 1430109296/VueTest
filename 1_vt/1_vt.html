@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>初始vue</title>
+        <!-- 引入VUE-->
+        <script type="text/javascript" src="./js/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h1>hello {{name}}</h1>
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip = false
+            const x = new Vue({
+                el:'#root', //el用于指定当前vue实例为哪个容器服务,但通常为css选择器字符串,id用#,class用.
+                //el:document.getElementById('root')
+                data() {//data存储数据供el所指定的容器使用
+                    return {
+                       name:'world111' 
+                    }
+                },
+            })//创建vue实例,传参为一个配置对象
+
+        </script>
+    </body>
+</html>

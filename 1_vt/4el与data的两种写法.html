@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>el与data的两种写法</title>
+        <!-- 引入VUE-->
+        <script type="text/javascript" src="./js/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h1>hello {{name}}</h1>
+        </div>
+        <script type="text/javascript">
+            Vue.config.productionTip = false
+            const x = new Vue({
+                //el:'#root', //el用于指定当前vue实例为哪个容器服务,但通常为css选择器字符串,id用#,class用.
+                data() {//data存储数据供el所指定的容器使用
+                    console.log(this);
+                    return {
+                       name:'world' 
+                    }
+                },
+            })//创建vue实例,传参为一个配置对象
+            console.log(x);
+            setTimeout(() => {//延迟一秒
+                x.$mount('#root')//第二种el方式
+            }, 1000);
+           
+        </script>
+    </body>
+</html>
