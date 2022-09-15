@@ -7,9 +7,28 @@
         <script type="text/javascript" src="./js/vue.js"></script>
     </head>
     <body>
+        <!--
+            1.别名:
+                回车:enter
+                删除:delete
+                退出:esc
+                空格:space
+                换行:tab(特殊,配合keydown)
+                上:up
+                下:down
+                左:left
+                右:right
+            2.未提供别名
+                使用键盘原始的名称(event.key)和码值(event.keyCode)
+                名称中有多个单词,全用小写且单词间用-连接
+
+            3.系统修饰键:ctrl,alt,shift,meta
+                1.keyup:按下修饰键的同时需要再按下其他键,然后释放其他键,事件才会触发,特定其他键触发,再后面再加.y
+                2.keydown:正常触发
+        -->
         <div id="root">
             <h1>hello {{name}}</h1>
-            <input type="text" placeholder="按下回车提示输入" @keyup="showInfo">
+            <input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo">
         </div>
         <script type="text/javascript">
             Vue.config.productionTip = false
@@ -22,7 +41,10 @@
                     }
                 },
                 methods: {
-                    showInfo(){
+                    showInfo(e){
+                        // if(e.keyCode == 13){ //.enter与此效果相同,enter为别名
+                        //     return
+                        // }
                         alert("你好!");
                     }
                 },
